@@ -1,10 +1,14 @@
 package com.vipabc.im.mytestapplication.api;
 
 
+import com.vipabc.im.mytestapplication.model.BaseRequest;
 import com.vipabc.im.mytestapplication.model.Device;
+import com.vipabc.im.mytestapplication.model.Devices;
 
 import java.util.List;
 
+import okhttp3.RequestBody;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 import rx.Observable;
 
@@ -13,5 +17,5 @@ import rx.Observable;
  */
 public interface GetDevicesApi {
     @POST("/cdz-service/device/getDeviceList")
-    Observable<List<Device>> getDevices();
+    Observable<Devices> getDevices(@Body BaseRequest requestBody);
 }

@@ -2,21 +2,25 @@ package com.vipabc.im.mytestapplication.manager;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.vipabc.im.mytestapplication.config.AppConfig;
 import com.vipabc.im.mytestapplication.app.BaseApp;
 import com.vipabc.im.mytestapplication.BuildConfig;
+import com.vipabc.im.mytestapplication.model.BaseRequest;
 import com.vipabc.im.mytestapplication.utils.NetworkUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -76,7 +80,7 @@ public class RetrofitManager {
         HttpLoggingInterceptor LoginInterceptor = new HttpLoggingInterceptor();
         LoginInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.addInterceptor(new RspCheckInterceptor());
+//        builder.addInterceptor(new RspCheckInterceptor());
         builder.addNetworkInterceptor(new LoggingInterceptor());
         if (BuildConfig.DEBUG) {
             builder.addInterceptor(LoginInterceptor); //添加retrofit日志打印
@@ -96,6 +100,7 @@ public class RetrofitManager {
 
 
     }
+
 
 
     public <T> T createReq(Class<T> reqServer) {
