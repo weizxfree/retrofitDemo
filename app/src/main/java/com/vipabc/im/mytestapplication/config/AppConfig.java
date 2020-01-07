@@ -5,6 +5,6 @@ package com.vipabc.im.mytestapplication.config;
  */
 public class AppConfig {
 
-    public static final String BASE_URL = "http://api.map.baidu.com/telematics/v3/";
+    public static final String BASE_URL = "http://47.99.207.155:80/";
 
 }

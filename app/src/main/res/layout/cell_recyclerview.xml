@@ -4,56 +4,6 @@
               android:orientation="vertical"
               android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_zs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_tipt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <TextView
-        android:id="@+id/tv_des"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <ImageView
-        android:id="@+id/dayPictureUrl"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
-
-    <ImageView
-        android:id="@+id/nightPictureUrl"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
-
-    <TextView
-        android:id="@+id/tv_weather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_temperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 
 

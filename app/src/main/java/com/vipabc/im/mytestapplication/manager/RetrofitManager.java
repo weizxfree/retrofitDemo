@@ -76,13 +76,11 @@ public class RetrofitManager {
         HttpLoggingInterceptor LoginInterceptor = new HttpLoggingInterceptor();
         LoginInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-//        builder.addInterceptor(new RspCheckInterceptor());
+        builder.addInterceptor(new RspCheckInterceptor());
         builder.addNetworkInterceptor(new LoggingInterceptor());
         if (BuildConfig.DEBUG) {
             builder.addInterceptor(LoginInterceptor); //添加retrofit日志打印
         }
-
-
         builder.connectTimeout(15, TimeUnit.SECONDS);
         builder.readTimeout(20, TimeUnit.SECONDS);
         builder.writeTimeout(20, TimeUnit.SECONDS);
