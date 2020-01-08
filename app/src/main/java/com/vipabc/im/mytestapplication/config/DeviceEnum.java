@@ -5,8 +5,8 @@ import android.text.TextUtils;
 public enum DeviceEnum {
 
     OPEN("open", "分闸"),
-    CLOSE("close", "合闸");
-
+    CLOSE("close", "合闸"),
+    NC("nc", "未连接");
     public String code;
     public String name;
 

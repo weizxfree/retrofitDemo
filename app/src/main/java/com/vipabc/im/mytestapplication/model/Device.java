@@ -116,8 +116,13 @@ public class Device {
     }
 
 
-    public boolean isOpen() {
-        return TextUtils.equals(breakerStatus, DeviceEnum.OPEN.code);
+    public DeviceEnum getDeviceStatus() {
+        if(TextUtils.equals(breakerStatus,DeviceEnum.OPEN.code)) {
+            return DeviceEnum.OPEN;
+        }else if(TextUtils.equals(breakerStatus,DeviceEnum.CLOSE.code)){
+            return DeviceEnum.CLOSE;
+        }
+        return DeviceEnum.NC;
     }
 
 }

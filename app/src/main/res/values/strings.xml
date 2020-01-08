@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">易电桩</string>
+    <string name="app_name">易电联</string>
     <string name="action_settings">Settings</string>
     <item name="tag_device_id" type="id" />
 
