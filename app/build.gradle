@@ -11,18 +11,51 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    // 签名配置
+    signingConfigs {
+        debug {
+            loadSigningConfigs('debug', '../keystore/signing.release.properties')
+        }
+        release {
+            loadSigningConfigs('release', '../keystore/signing.release.properties')
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
+// 加载签名配置
+def loadSigningConfigs(type, path) {
+    def Properties props = new Properties()
+    def propFile = file(path)
+
+    if (propFile.canRead()) {
+        props.load(new FileInputStream(propFile))
+        if (props != null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+                props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+            android.signingConfigs."$type".storeFile = file(props['STORE_FILE'])
+            android.signingConfigs."$type".storePassword = props['STORE_PASSWORD']
+            android.signingConfigs."$type".keyAlias = props['KEY_ALIAS']
+            android.signingConfigs."$type".keyPassword = props['KEY_PASSWORD']
+        } else {
+            android.buildTypes."$type".signingConfig = null
+        }
+    } else {
+        android.buildTypes."$type".signingConfig = null
+    }
+}
 
 
 dependencies {
