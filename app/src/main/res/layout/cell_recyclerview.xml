@@ -25,9 +25,8 @@
             android:id="@+id/tv_run_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_alignLeft="@+id/tv_device_id"
+            android:layout_below="@+id/tv_device_id"
              />
 
 
@@ -37,10 +36,31 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/tv_run_status"
             android:layout_below="@+id/tv_run_status"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             />
 
+
+        <Button
+            android:id="@+id/bt_opt_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_alignTop="@+id/tv_device_id"
+            android:text="分闸"
+            />
+
+
+        <Button
+            android:id="@+id/bt_opt_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bt_opt_open"
+            android:layout_below="@+id/bt_opt_open"
+            android:layout_marginTop="10dp"
+            android:text="合闸"
+            />
 
     </RelativeLayout>
 

@@ -1,5 +1,9 @@
 package com.vipabc.im.mytestapplication.model;
 
+import android.text.TextUtils;
+
+import com.vipabc.im.mytestapplication.config.DeviceEnum;
+
 public class Device {
 
     private String breakerSn;
@@ -109,6 +113,11 @@ public class Device {
 
     public String getRunStatus() {
         return runStatus;
+    }
+
+
+    public boolean isOpen() {
+        return TextUtils.equals(breakerStatus, DeviceEnum.OPEN.code);
     }
 
 }
