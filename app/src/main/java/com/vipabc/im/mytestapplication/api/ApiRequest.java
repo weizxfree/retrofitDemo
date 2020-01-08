@@ -31,6 +31,9 @@ public class ApiRequest {
 
                     @Override
                     public void onError(Throwable e) {
+                        if (callBack != null) {
+                            callBack.onResult(null);
+                        }
                     }
 
                     @Override
@@ -39,6 +42,10 @@ public class ApiRequest {
                         if (devices != null && devices.data != null && devices.data.deviceList != null) {
                             if (callBack != null) {
                                 callBack.onResult(devices);
+                            }
+                        } else {
+                            if (callBack != null) {
+                                callBack.onResult(null);
                             }
                         }
                     }

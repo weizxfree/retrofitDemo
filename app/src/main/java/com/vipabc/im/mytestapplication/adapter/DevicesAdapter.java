@@ -29,6 +29,7 @@ public class DevicesAdapter extends RecyclerView.Adapter {
     private List<Device> mDatas;
     private LayoutInflater inflater;
     private Context mContext;
+    private OnOptChangeListener mOnOptChangeListener;
 
     public DevicesAdapter(Context context) {
         mContext = context;
@@ -38,6 +39,14 @@ public class DevicesAdapter extends RecyclerView.Adapter {
     public DevicesAdapter(Context context, List<Device> results) {
         this(context);
         this.mDatas = results;
+    }
+
+    public interface OnOptChangeListener {
+        void onUpdate();
+    }
+
+    public void setOptOnChangeListener(OnOptChangeListener listener) {
+        this.mOnOptChangeListener = listener;
     }
 
     public void setData(List<Device> results) {
@@ -65,10 +74,10 @@ public class DevicesAdapter extends RecyclerView.Adapter {
         if (deviceEnum == DeviceEnum.OPEN) {
             viewHolder.btOptOpenDevice.setEnabled(false);
             viewHolder.btOptCloseDevice.setEnabled(true);
-        } else if(deviceEnum == DeviceEnum.CLOSE) {
+        } else if (deviceEnum == DeviceEnum.CLOSE) {
             viewHolder.btOptOpenDevice.setEnabled(true);
             viewHolder.btOptCloseDevice.setEnabled(false);
-        } else if(deviceEnum == DeviceEnum.NC){
+        } else if (deviceEnum == DeviceEnum.NC) {
             viewHolder.btOptOpenDevice.setEnabled(false);
             viewHolder.btOptCloseDevice.setEnabled(false);
         }
@@ -98,6 +107,9 @@ public class DevicesAdapter extends RecyclerView.Adapter {
                         ToastUtil.show("操作成功");
                     } else {
                         ToastUtil.show(response.message);
+                    }
+                    if (mOnOptChangeListener != null) {
+                        mOnOptChangeListener.onUpdate();
                     }
                 }
             });
