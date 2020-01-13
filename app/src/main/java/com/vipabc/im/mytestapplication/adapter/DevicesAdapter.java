@@ -70,17 +70,17 @@ public class DevicesAdapter extends RecyclerView.Adapter {
         viewHolder.btOptOpenDevice.setOnClickListener(mOptOnClickListener);
         viewHolder.btOptCloseDevice.setTag(R.id.tag_device_id, device.getDeviceId());
         viewHolder.btOptCloseDevice.setOnClickListener(mOptOnClickListener);
-        DeviceEnum deviceEnum = device.getDeviceStatus();
-        if (deviceEnum == DeviceEnum.OPEN) {
-            viewHolder.btOptOpenDevice.setEnabled(false);
-            viewHolder.btOptCloseDevice.setEnabled(true);
-        } else if (deviceEnum == DeviceEnum.CLOSE) {
-            viewHolder.btOptOpenDevice.setEnabled(true);
-            viewHolder.btOptCloseDevice.setEnabled(false);
-        } else if (deviceEnum == DeviceEnum.NC) {
-            viewHolder.btOptOpenDevice.setEnabled(false);
-            viewHolder.btOptCloseDevice.setEnabled(false);
-        }
+//        DeviceEnum deviceEnum = device.getDeviceStatus();
+//        if (deviceEnum == DeviceEnum.OPEN) {
+//            viewHolder.btOptOpenDevice.setEnabled(false);
+//            viewHolder.btOptCloseDevice.setEnabled(true);
+//        } else if (deviceEnum == DeviceEnum.CLOSE) {
+//            viewHolder.btOptOpenDevice.setEnabled(true);
+//            viewHolder.btOptCloseDevice.setEnabled(false);
+//        } else if (deviceEnum == DeviceEnum.NC) {
+//            viewHolder.btOptOpenDevice.setEnabled(false);
+//            viewHolder.btOptCloseDevice.setEnabled(false);
+//        }
     }
 
     private View.OnClickListener mOptOnClickListener = new View.OnClickListener() {
